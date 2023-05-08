@@ -1,1 +1,1 @@
-# RenderMe-360-ICCV.github.io
+# RenderMe-360.github.io
