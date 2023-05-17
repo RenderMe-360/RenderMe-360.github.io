@@ -92,11 +92,14 @@
               </ul>
             </li>-->
             <li><a href="inner-benchmark.html#Benchmark Overview">Benchmark Overview</a></li>
-            <li><a href="inner-benchmark-nvs.html#NVS">NVS</a></li>
+            <li><a href="inner-benchmark-nvs.html#NVS">Single-ID NVS</a></li>
+            <li><a href="inner-benchmark-nis.html#Generalization">Generalization NVS</a></li>
             <li><a href="inner-benchmark-nes.html#NES">Novel Expression</a></li><!--href="inner-benchmark-novelpose.html#Novel Pose-->
-            <li><a href="inner-benchmark-talkinghead.html#Talking Head">Talking Head</a></li>
-            <li><a href="inner-benchmark-hairediting.html#Hair Editing">Hair Editing</a></li><!--#inner-benchmark-hairediting.html#Hair Editing-->
-            <li><a href="inner-benchmark-nis.html#Generlization">Generlization</a></li>
+            <li><a href="inner-benchmark-hairrender.html#HairRendering">Hair Rendering</a></li>      
+            <li><a href="inner-benchmark-hairediting.html#HairEditing">Hair Editing</a></li><!--#inner-benchmark-hairediting.html#Hair Editing-->      
+            <li><a href="inner-benchmark-talkinghead.html#TalkingHead">Talking Head</a></li>
+            
+            
           </ul>
         </li>
         </li>
@@ -158,12 +161,12 @@
                         <div class="container" >
                           <div class="box">
                             <!--<div class="icon"><a href=""><i class="bi bi-briefcase"></i></a></div>-->
-                            <h4 class="title"><a href="inner-benchmark-nvs.html">Novel View</a></h4>
+                            <h4 class="title"><a href="inner-benchmark-nvs.html">Single-ID Novel View Synthesis</a></h4>
                               <a href="inner-benchmark-nvs.html"><img class="listitemimage" src="assets/img/benchmark/nvs.jpg" width="88%"></a>
-                            <p class="description"> Novel View Synthesis (NVS) is concerned with synthesizing views under camera viewpoint transformations from one or multiple input images. The tested methods include NGP [SIGGRAPH-2022], NeuS [NeurIPS-2021], NV [SIGGRAPH-2019] and MVP [SIGGRAPH-2021].
+                            <p class="description"> Single-ID Novel View Synthesis (Single-ID NVS) is concerned with synthesizing views under camera viewpoint transformations from one or multiple input images. The tested methods include Instant-NGP [SIGGRAPH-2022], NeuS [NeurIPS-2021], NV [SIGGRAPH-2019] and MVP [SIGGRAPH-2021].
                               <dl>
-                                <dt>NGP [SIGGRAPH-2022]</dt> 
-                                <dd>NGP utilizes multi-resolution hash encoding to automatically focuses on relevant detail by performing a practical learning-based alternative. It is a case specific, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural volumetric representation. </dd>
+                                <dt>Instant-NGP [SIGGRAPH-2022]</dt> 
+                                <dd>Instant-NGP utilizes multi-resolution hash encoding to automatically focuses on relevant detail by performing a practical learning-based alternative. It is a case specific, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural volumetric representation. </dd>
                                 <dt>NeuS [NeurIPS-2021]</dt>
                                 <dd>NeuS is to multiview surface reconstruction that represents 3D surfaces as neural SDF, and it develops a new volume rendering method for training the implicit SDF representation. It is a case specific, SDF-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural SDF representation.</dd>
                                 <dt>NV [SIGGRAPH-2019]</dt>
@@ -176,10 +179,33 @@
                             </p>
                           </div>
                         </div>
+
+
+                        <div class="container" >
+                          <div class="box">
+                            <!--<div class="icon"><a href=""><i class="bi bi-binoculars"></i></a></div>-->
+                            <h4 class="title"><a href="inner-benchmark-nis.html">Generalization NVS</a></h4>
+                              <a href="inner-benchmark-nis.html"><img class="listitemimage" src="assets/img/benchmark/nis.jpg" width="88%"></a>
+                            <p class="description">Generalization NVS of Novel ID Synthesis and Novel view Synthesis aims to synthesize the novel expressions of novel identities. The tested methods of generalization ability include  IBRNet [CVPR-2021], VisionNeRF [WACV-2023], and KeypointNeRF [ECCV-2022].
+
+                              <dl>
+                                <dt>IBRNet [CVPR-2021]</dt> 
+                                <dd>IBRNet blends pixels from nearby images with weights and volume densities inferred by a network comprising an MLP and ray transformer. It is a generalizable, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural volumetric representation. </dd>
+                                <dt>VisionNeRF [WACV-2023]</dt> 
+                                <dd>VisionNeRF applies vision transformer in conjunction with convolutional networks to extract global and local features as 3D representations. It is a generalizable, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural volumetric representation. </dd>
+                                <dt>KeypointNeRF [ECCV-2022]</dt> 
+                                <dd>KeypointNeRF is a novel spatial encoding based on relative information extracted from 3D keypoints. It is a generalizable, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural volumetric representation. It needs facial keypoints as facial prois.</dd>
+                                
+                            </dl> 
+                            </p>
+              
+                          </div>
+
+
                         <div class="container" >
                           <div class="box">
                             <!--<div class="icon"><a href=""><i class="bi bi-card-checklist"></i></a></div>-->
-                            <h4 class="title"><a href="inner-benchmark-nes.html">Novel Expression</a></h4>
+                            <h4 class="title"><a href="inner-benchmark-nes.html">Novel Expression Synthesis</a></h4>
                               <a href="inner-benchmark-nes.html"><img class="listitemimage" src="assets/img/benchmark/nes.jpg" width="88%"></a>
                             <p class="description">Novel Expression Synthesis (NES) is to generate the new expression of a subject from one expression of the same subject. The tested methods include NeRFace [CVPR-2021], IM Avatar [CVPR-2022], and PointAvatar [Arxiv-2022].
                               <dl>
@@ -196,6 +222,48 @@
                           </div>
                         </div>
               
+
+                        <div class="container" >
+                          <div class="box">
+                            <!--<div class="icon"><a href=""><i class="bi bi-card-checklist"></i></a></div>-->
+                            <h4 class="title"><a href="inner-benchmark-hairrender.html">Hair Rendering</a></h4>
+                              <a href="inner-benchmark-hairrender.html"><img class="listitemimage" src="assets/img/benchmark/hairrender.jpg" width="88%"></a>
+                            <p class="description">Hair rendering is to model accurate hair appearance across changes of viewpoints or dynamic motions. The tested methods include Instant-NGP [SIGGRAPH-2022], NeuS [NeurIPS-2021], NV [SIGGRAPH-2019], MVP [SIGGRAPH-2021], NSFF [CVPR2021] and NR-NeRF [ICCV2021]. In addition to the aforementioned approaches ( Instant-NGP, NeuS, NV and MVP ), NSFF and NR-NeRF have the following characteristics:
+                              <dl>
+                                <dt>NSFF [CVPR2021]</dt> 
+                                <dd>NSFF present a new representation to implicitly model scene time-variant reflectance, geometry and 3D motion. It is a case specific, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield dynamic results with neural volumetric representation. </dd>
+                                <dt>NR-NeRF [ICCV2021]</dt>
+                                <dd>NR-NeRF is a method to render free viewpoint of a dynamic scene using a monocular video as input. It is a case specific, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield dynamic results with neural volumetric representation.</dd>
+                                
+                                
+                            </dl> 
+
+                            </p>
+                          </div>
+                        </div>
+
+
+
+                        <div class="container" >
+                          <div class="box">
+                            <!--<div class="icon"><a href=""><i class="bi bi-binoculars"></i></a></div>-->
+                            <h4 class="title"><a href="inner-benchmark-hairediting.html">Hair Editing</a></h4>
+                              <a href="inner-benchmark-hairediting.html"><img class="listitemimage" src="assets/img/benchmark/hair.jpg" width="88%"></a>
+                            <p class="description">Hair Editing is to change the hair styles of the original subjects. The tested methods include HairCLIP [CVPR-2022] and StyleCLIP [ICCV-2021]. The pre-processing inversion methods of the two methods involves e4e [SIGGRAPH-2021], PTI [SIGGRAPH-2021], Restyle [ICCV-2021], and HyperStyle [CVPR-2022].
+                              <dl>
+                                <dt>HairCLIP [CVPR-2022]</dt> 
+                                <dd>HairCLIP individually or jointly provides textual descriptions and reference images to complete the hair editing with CLIP. It is a generalizable, convolution-based method and feature space conditioning that fed with single-view images and camera calibration and yield dynamic results with neural volumetric representation. It needs parametric models as facial prois. </dd>
+                                <dt>StyleCLIP [ICCV-2021]</dt>
+                                <dd>StyleCLIP introduces three image manipulation methods that combine StyleGAN and CLIP. It is a generalizable, convolution-based method and feature space conditioning that fed with single-view images and camera calibration and yield dynamic results with neural volumetric representation. It needs parametric models as facial prois.</dd>
+                                
+                                
+                            </dl> 
+
+                            </p>
+              
+                          </div>
+
+
                         <div class="container" >
                           <div class="box">
                             <!--<div class="icon"><a href=""><i class="bi bi-binoculars"></i></a></div>-->
@@ -215,44 +283,9 @@
                         </div>
               
               
-                        <div class="container" >
-                          <div class="box">
-                            <!--<div class="icon"><a href=""><i class="bi bi-binoculars"></i></a></div>-->
-                            <h4 class="title"><a href="inner-benchmark-hairediting.html">Hair Editing</a></h4>
-                              <a href="inner-benchmark-hairediting.html"><img class="listitemimage" src="assets/img/benchmark/hair.jpg" width="88%"></a>
-                            <p class="description">Hair Editing is to change the hair styles of the original subjects. The tested methods include HairCLIP [CVPR-2022] and StyleCLIP [ICCV-2021]. The pre-processing inversion methods of the two methods involves e4e [SIGGRAPH-2021], PTI [SIGGRAPH-2021], Restyle [ICCV-2021], and HyperStyle [CVPR-2022].
-                              <dl>
-                                <dt>HairCLIP [CVPR-2022]</dt> 
-                                <dd>HairCLIP individually or jointly provides textual descriptions and reference images to complete the hair editing with CLIP. It is a generlizable, convolution-based method and feature space conditioning that fed with single-view images and camera calibration and yield dynamic results with neural volumetric representation. It needs parametric models as facial prois. </dd>
-                                <dt>StyleCLIP [ICCV-2021]</dt>
-                                <dd>StyleCLIP introduces three image manipulation methods that combine StyleGAN and CLIP. It is a generlizable, convolution-based method and feature space conditioning that fed with single-view images and camera calibration and yield dynamic results with neural volumetric representation. It needs parametric models as facial prois.</dd>
-                                
-                                
-                            </dl> 
-
-                            </p>
-              
-                          </div>
                         
-                          <div class="container" >
-                            <div class="box">
-                              <!--<div class="icon"><a href=""><i class="bi bi-binoculars"></i></a></div>-->
-                              <h4 class="title"><a href="inner-benchmark-nis.html">Generlization</a></h4>
-                                <a href="inner-benchmark-nis.html"><img class="listitemimage" src="assets/img/benchmark/nis.jpg" width="88%"></a>
-                              <p class="description">Generlization of Novel ID Synthesis and Novel view Synthesis aims to synthesize the novel expressions of novel identities. The tested methods of generalization ability include  IBRNet [CVPR-2021], VisionNeRF [WACV-2023], and KeypointNeRF [ECCV-2022].
-
-                                <dl>
-                                  <dt>IBRNet [CVPR-2021]</dt> 
-                                  <dd>IBRNet blends pixels from nearby images with weights and volume densities inferred by a network comprising an MLP and ray transformer. It is a generlizable, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural volumetric representation. </dd>
-                                  <dt>VisionNeRF [WACV-2023]</dt> 
-                                  <dd>VisionNeRF applies vision transformer in conjunction with convolutional networks to extract global and local features as 3D representations. It is a generlizable, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural volumetric representation. </dd>
-                                  <dt>KeypointNeRF [ECCV-2022]</dt> 
-                                  <dd>KeypointNeRF is a novel spatial encoding based on relative information extracted from 3D keypoints. It is a generlizable, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural volumetric representation. It needs facial keypoints as facial prois.</dd>
-                                  
-                              </dl> 
-                              </p>
-                
-                            </div>
+                        
+                          
 
                         </div>
               
