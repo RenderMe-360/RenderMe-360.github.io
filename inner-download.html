@@ -105,6 +105,7 @@
             <li><a href="inner-benchmark-hairrender.html#HairRendering">Hair Rendering</a></li>      
             <li><a href="inner-benchmark-hairediting.html#HairEditing">Hair Editing</a></li><!--#inner-benchmark-hairediting.html#Hair Editing-->      
             <li><a href="inner-benchmark-talkinghead.html#TalkingHead">Talking Head</a></li>
+            <li><a href="inner-benchmark-datasets.html#DatasetsEvaluation">Cross- & Intra- Evaluation</a></li>
           </ul>
         </li>
         </li>
@@ -161,14 +162,34 @@
 
           <center>
 		  <h2><a href="https://opendatalab.com/RenderMe-360">Download</a> the full data of sampled IDs.</h2>
-      <br><br>
-      <h3 align="left">Data Preparation Timeline</h3>
-      <h5 align="left"><p2>☑June</p2> -> Data of One sampled ID</h5>
-      <h5 align="left"><p2>☑Mid of July</p2> -> Data of 20 sampled IDs</h5>
-      <h5 align="left"><p2>□Mid of December</p2> -> Full Data</h5>
       
-            <a href="https://opendatalab.com/RenderMe-360"><img src="assets/img/teaser.png" width="100%"></a>
+      
+            <a href="https://opendatalab.com/RenderMe-360"><img src="assets/img/teaser.png" width="88%"></a>
+
+            <br><br>
+      <h3 align="center">Data Preparation Timeline</h3>
+      <h5 align="left"><p2>☑ June</p2> -> Data of One sampled ID</h5>
+      <h5 align="left"><p2>☑ Mid of July</p2> -> Data of 20 sampled IDs</h5>
+      <h5 align="left"><p2>□ Mid of December</p2> -> Full Data</h5>
+      
                </center>
+      <br><br>
+      <h3 align="center">Dataset Structure</h3>
+      <ul>
+        <li>How To Use: <code>Raw/RenFace_How2Use.zip </code> </li>
+        <li>Data Reader: <code> Raw/smc_reader_renface.py </code></li>
+        <li>Dataset Content (* means index):
+          <div style="border: 1px solid #ccc; background-color: #eee; padding: 10px;border-radius: 10px;">
+          
+          <code>
+            - id<br>
+            -- id_e*.smc<br>
+            -- id_h*.smc<br>
+            -- id_s*_all.smc<br>
+          </code>
+          </div>
+        </li>
+      </ul>
         </div>
     </section>
       

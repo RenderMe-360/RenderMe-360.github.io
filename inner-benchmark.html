@@ -98,6 +98,7 @@
             <li><a href="inner-benchmark-hairrender.html#HairRendering">Hair Rendering</a></li>      
             <li><a href="inner-benchmark-hairediting.html#HairEditing">Hair Editing</a></li><!--#inner-benchmark-hairediting.html#Hair Editing-->      
             <li><a href="inner-benchmark-talkinghead.html#TalkingHead">Talking Head</a></li>
+            <li><a href="inner-benchmark-datasets.html#DatasetsEvaluation">Cross- & Intra- Evaluation</a></li>
             
             
           </ul>
@@ -157,7 +158,14 @@
   
 
                        <center>
-                         <img class="listitemimage" src="assets/img/benchmark/benchmark.png" width="50%">
+                        <div class="container" >
+                          <div class="box">
+                            <!--<div class="icon"><a href=""><i class="bi bi-briefcase"></i></a></div>-->
+                            <h4 class="title">Overall</h4>
+                         <img class="listitemimage" src="assets/img/benchmark/benchmark.png" width="30%">
+                        </div>
+                      </div>
+
                         <div class="container" >
                           <div class="box">
                             <!--<div class="icon"><a href=""><i class="bi bi-briefcase"></i></a></div>-->
@@ -281,7 +289,30 @@
                             </p>
                           </div>
                         </div>
-              
+                        
+                        <div class="container" >
+                          <div class="box">
+                            <!--<div class="icon"><a href=""><i class="bi bi-binoculars"></i></a></div>-->
+                            <h4 class="title"><a href="inner-benchmark-datasets.html">Cross-Domain (left) & Intra-Domain (right)<br> Dataset Evaluation</a></h4>
+                              <a href="inner-benchmark-datasets.htm"><img class="listitemimage" src="assets/img/benchmark/cross-domain.jpg" width="40%"></a>
+                              <a href="inner-benchmark-datasets.htm"><img class="listitemimage" src="assets/img/benchmark/intra-domain.jpg" width="50%"></a>
+                              
+                              
+
+                              <p class="description">Cross-Domain and Intra-Domain dataset evaluation of Novel ID Synthesis and Novel view Synthesis aims to validate the performance of different portrait datasets, including MultiFace [Arxiv-2022] and Facescape [CVPR-2020], and different settings in RenderMe-360. The evaluated methods include IBRNet [CVPR-2021], VisionNeRF [WACV-2023], and KeypointNeRF [ECCV-2022].
+
+                                <dl>
+                                  <dt>IBRNet [CVPR-2021]</dt> 
+                                  <dd>IBRNet blends pixels from nearby images with weights and volume densities inferred by a network comprising an MLP and ray transformer. It is a generalizable, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural volumetric representation. </dd>
+                                  <dt>VisionNeRF [WACV-2023]</dt> 
+                                  <dd>VisionNeRF applies vision transformer in conjunction with convolutional networks to extract global and local features as 3D representations. It is a generalizable, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural volumetric representation. </dd>
+                                  <dt>KeypointNeRF [ECCV-2022]</dt> 
+                                  <dd>KeypointNeRF is a novel spatial encoding based on relative information extracted from 3D keypoints. It is a generalizable, radiance field-based method and images conditioning that fed with multi-view images and camera calibration and yield static results with neural volumetric representation. It needs facial keypoints as facial prois.</dd>
+                                  
+                              </dl> 
+                              </p>
+                          </div>
+                        </div>
               
                         
                         
