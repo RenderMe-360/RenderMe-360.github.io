@@ -175,22 +175,180 @@
                </center>
       <br><br>
       <h3 align="center">Dataset Structure</h3>
-      <ul>
-        <li>How To Use: <code>Raw/RenFace_How2Use.zip </code> </li>
-        <li>Data Reader: <code> Raw/smc_reader_renface.py </code></li>
-        <li>Dataset Content (* means index):
-          <div style="border: 1px solid #ccc; background-color: #eee; padding: 10px;border-radius: 10px;">
-          
-          <code>
-            - id <em># id name</em><br>
-            -- id_e*.smc <em># expression</em> <br>
-            -- id_h*.smc <em># hairstyle</em> <br>
-            -- id_s*_all.smc <em># speech</em> <br>
-          </code>
+
+      <div style="border: 1px solid #ccc; background-color: #eee; padding: 10px;border-radius: 10px;">
+
+        0026 【model index】 <br>
+        ├─ 0026_e0.smc   【smc file of expression 0】 <br>
+        ├─  ... <br>
+        ├─ 0026_e11.smc   【smc file of expression 11】 <br>
+        ├─ 0026_h0.smc   【smc file of original hairstyle】 <br>
+        ├─ 0026_h1_[wig index + wig color].smc   【smc file of wigs, optional】 <br>
+        ├─ 0026_h2.smc   【smc file of headgear, optional】 <br>
+        ├─ 0026_s1.smc   【smc file of speech 1】 <br>
+        ├─  ... <br>
+        ├─ 0026_s6.smc   【smc file of speech 6】 <br>
+        0041 【model index】 <br>
+        ├─ ... <br>
+        ... 【model index】 <br>
+        RenderMe_360_How2Use.zip 【smc data structure】 <br>
+        smc_reader_renderme_360.py 【scripts for reading the smc files】 <br>
           </div>
-        </li>
-      </ul>
-        </div>
+            <br>
+<h3 align="center">How to use - smc data structure</h3>
+<p>The foundemental element of RenderMe-360 dataset is a h5 based SMC file, named with <code>{actorID}_{actionType}{actionID}_{sub_actionID}.smc</code>.
+Each SMC file packs 60 sets of synchronous multi-view image frames, audios (if talking), calibrations, and annotations.
+The <code>actionType</code> includes <code>s</code> for speech, <code>h</code> for hair style and <code>e</code> for expression.
+The <code>actionID</code> is the collection id.
+<code>sub_actionID</code> is the subdivision of each collection segment (if any); where the wig collection part <code>sub_actionID</code> is composed as <code>{wigID}{color}</code>.</p>
+<p>The top level of SMC file is organized as</p>
+<!-- <div style="background-color:#D6FFD6; text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
+{<a href="/blog">VIEW THE BLOG</a>}
+</div> -->
+<pre><code class="language-json">{
+    "attrs"				   : atrributes of actor ID,
+    "Images"                               : multi-view image frames and audios,
+    "Calibration"                          : calibration of cameras,
+    "Annotation"                           : keypoints annotation and fitting parameters,
+}
+</code></pre>
+<h2>1. Basic Attributes</h2>
+<p>The <code>attrs</code> group stores basic attribute information of the ID, including attributes of the actor and the camera.</p>
+<pre><code class="language-json">{
+    ".attrs"{
+        "age"                              : int,
+        "gender"                           : str ["male", "female"],
+        "color"                            : str ["yellow", "white", "black", "brown"],
+        "height"                           : float,
+        "weight"                           : float,
+    }
+    "Camera.attrs"{
+        "num_device"                       : int,
+        "num_frame"                        : int,
+        "resolution"                       : int (height, width),
+    }
+}
+</code></pre>
+<h2>2. Videos</h2>
+<p>The <code>Videos</code> group contains all captured images and audios. Each image frame can be indexed by its <code>cameraID</code>, <code>frameID</code> and its type [<code>color</code>, <code>mask</code>, <code>audio</code>].</p>
+<pre><code class="language-json"> {
+    "cameraID"{
+        "color"{
+            "frameID"                       : uint8 (2048, 2448, 3)
+            ...
+        },
+        "mask"{
+     "frameID"		            : uint8 (2048, 2448, 3), with BackgroundMattingV2
+           ...
+        },
+    }
+    "audio": ...	                    : uint8, exists if the action contains talking
+}
+</code></pre>
+<h2>3. Calibrations</h2>
+<p>The <code>Calibrations</code> group gives the calibration coeffient of all cameras including intrinsic, extrinisc and distortions, indexed by <code>cameraID</code>.</p>
+<pre><code class="language-json">{
+    "cameraID"{
+        "K"                                 : double (3,3) intrinsic matrix,
+        "D"                                 : double (5,) distortion coeffient,
+        "RT"                                : double (4,4) maps point from camera to world
+    }
+}
+</code></pre>
+<h2>4. Annotations</h2>
+<p>The <code>Annotations</code> group provides the annotation of RenderMe-360 dataset labelled computed by the state-of-art methods. Specifically, <code>Keypoint2d</code> stores the detected 2D keypoints from all camera views. <code>Keypoint3d</code> provides 3D keypoints.</p>
+<pre><code class="language-json">{
+    "cameraID"{
+        "Keypoint2d"{
+            "frameID"                       : double (frame_num,106,2)
+            ...
+            }
+    }
+    "Keypoints3d"{
+            "frameID"                       : double (frame_num,73,3)
+            ...
+        }
+}
+</code></pre>
+<h2>5. FLAME</h2>
+<p>The <code>Annotations</code> group provides the annotation of RenderMe-360 dataset labelled computed by the state-of-art methods. Specifically, <code>FLAME</code> stores the FLAME fitting parameters from each frame. (only in expression part)</p>
+<pre><code class="language-json">{
+    "FLAME"{
+        "frameID"{
+            "global_pose"                   : double (3,)
+            "neck_pose"                     : double (3,)
+            "jaw_pose"                      : double (3,)
+            "left_eye_pose"                 : double (3,)
+            "right_eye_pose"                : double (3,)
+            "trans"                         : double (3,)
+            "shape"                         : double (100,)
+            "exp"                           : double (50,)
+            "verts"                         : double (5023,3)
+            "albedos"                       : double (3,256,256)
+            }
+    }
+}
+</code></pre>
+<h2>6. uv texture</h2>
+<p>The <code>Annotations</code> group provides the annotation of RenderMe-360 dataset labelled computed by the state-of-art methods. Specifically, <code>UV_texture</code> stores the uv texture map from each frame. (only in expression part)</p>
+<pre><code class="language-json">{
+    "UV_texture"{
+        "frameID"                           : uint8 (256, 256, 3)
+    }
+}
+</code></pre>
+<h2>7. scan mesh</h2>
+<p>The <code>Annotations</code> group provides the annotation of RenderMe-360 dataset labelled computed by the state-of-art methods. Specifically, <code>Scan</code> stores the scan mesh data. (only in expression part)</p>
+<pre><code class="language-json">{
+    "Scan"{
+        "vertex"                            : double (n, 3), n: number of vertices
+        "vertex_indices"                    : int    (m, 3), m: number of index
+    }
+}
+</code></pre>
+<h3 align="center">Data Interface</h3>
+<p>We provide a standard data interface <a href="assets/code/renderme_360_reader.py">renderme_360_reader.py</a> to fetch each data including all attributes, images, calibrations and annotations. Here is a tiny example.</p>
+<pre><code class="language-python">&gt;&gt; from smc_reader import SMCReader
+&gt;&gt; import numpy as np
+
+&gt;&gt; reader = SMCReader('smc_file')
+&gt;&gt; Camera_id = "01"
+&gt;&gt; Frame_id = 0
+
+&gt;&gt; audio = reader.get_audio()          			# Load audio
+&gt;&gt; image = reader.get_img(Camera_id, 'color', Frame_id)          # Load image for the specified camera and frame
+&gt;&gt; print(image.shape)
+(2048, 2448, 3)
+&gt;&gt; mask = reader.get_img(Camera_id, 'mask', Frame_id)            # Load mask for the specified camera and frame
+&gt;&gt; print(mask.shape)
+(2048, 2448)
+
+&gt;&gt; calibration  = reader.get_Calibration(Camera_id) 	# Load camera parameters for the specified camera.
+&gt;&gt; print(calibration['K'].shape, calibration['D'].shape, calibration['RT'].shape)
+(3, 3)  (5, )  (4, 4)
+
+&gt;&gt; lmk2d = reader.get_Keypoints2d(Camera_id, Frame_id)    # Load landmark 2d for the specified frame. (face landmarks 106)
+&gt;&gt; print(lmk2d.shape)
+(106, 2)
+
+&gt;&gt; lmk3d = reader.get_Keypoints3d(Frame_id)    # Load landmark 3d for the specified frame. (33 contour points not included)
+&gt;&gt; print(lmk3d.shape)
+(73, 3)
+
+&gt;&gt; flame = reader.get_FLAME(Frame_id)         # Load FLAME parameters for the specified frame.
+&gt;&gt; print(flame.keys())
+['albedos', 'cam', 'exp', 'global_pose', 'jaw_pose', 'left_eye_pose', 'lit', 'neck_pose', 'right_eye_pose', 'shape', 'tex', 'trans', 'verts']
+
+&gt;&gt; uv = reader.get_uv(Frame_id)         # Load uv texture map for the specified frame.
+&gt;&gt; print(uv.keys())
+(256, 256, 3)
+
+&gt;&gt; scan = reader.get_scanmesh(Frame_id)         # Load scan mesh for the expression part.
+&gt;&gt; print(scan.keys())
+['vertex', 'vertex_indices']
+</code></pre>
+
+
     </section>
       
 
