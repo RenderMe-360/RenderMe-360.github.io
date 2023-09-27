@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>RenderMe-360 - Benchmark</title>
+  <title>RenderMe-360 - Download</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -53,6 +53,18 @@
     background: linear-gradient(to right, #5A0060, #B066FF,#006699,#00BFFF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-size: 24px; 
+    
+
+  }
+</style>
+<style>
+  pre {
+  border: 1px solid #ccc; 
+  background-color: #eee; 
+  padding: 10px;
+  border-radius: 10px;
+
   }
 </style>
 
@@ -151,7 +163,7 @@
 
 
     <section id="features-comparison4">
-
+      
         <div class="container">
           <div class="section-header">
             <h3 class="section-title2">Download</h3>
@@ -160,19 +172,163 @@
            <!-- <p class="section-description">TDW has been used in a number of labs within MIT and Stanford, as well as IBM</p> -->
           </div>
 
-          <center>
-            <a href="https://opendatalab.com/RenderMe-360"><img src="assets/img/teaser.png" width="88%"></a>
+          
 
-            <br><br>
-      <h3 align="center">Data Preparation Timeline</h3>
-      <h5 align="left"><p2>☑ June</p2> -> Data of One sampled ID</h5>
-      <h5 align="left"><p2>☑ Mid of July</p2> -> Data of 20 sampled IDs（Raw data is available now!）</h5>
-      <h5 align="left"><p2>☑ September</p2> -> Raw Data and Annotations of 21 sampled IDs are available now!</h5>
-      <h5 align="left"><p2>□ Mid of December</p2> -> Full Data</h5>
+              <table>
+                <colgroup>
+                  
+                </colgroup>
+                <tr>
+                  <td style="width:25%"><p2><a href="#overview">Overview</a></p2></td>                  
+                  <td style="width:25%"><p2><a href="#news">News</a></p2></td>
+                  
+                  <td style="width:25%"><p2><a href="#timeline">Timeline</a></p2></td> 
+                  <td style="width:25%"><p2><a href="#data_usage">Usage</a></p2></td>
+                  <td style="width:25%"><p2><a href="#contact">Contact</a></p2></td>
+                  
+                </tr>
+              </table>
+
+              <br><br>
+      <a name="overview"></a>
+      <h1 align="center" >Overview</h1>
       
-               </center>
+
+      We are excited to introduce <b>RenderMe-360</b>, a high-quality 4D face dataset.
+      The original data is captured 60 2K cameras on 500 subjects. And we provide diverse annotations. 
       <br><br>
-      <h3 align="center">Dataset Structure</h3>
+      * Raw Data: The capturing data of each subject contains 12 facial expression videos, 6 speech videos and several dynamic motion videos with wigs (except some special performers). 
+      <br>
+      * Annotation: Frame-level annotations including background matting, 2D & 3D landmarks, 3D scans, FLAME fitting model, facial attributes and action descriptions. 
+      <br><br>
+      
+      More information can be found on our official <a href="https://github.com/RenderMe-360/RenderMe-360">Github page</a>. 
+      
+      
+      <a name="news"></a>
+      <br>
+      <h1 align="center">News</h1>
+      
+      &#127881; 2023.09----Our paper has been accepted by NeurIPS 2023 D&B Track.
+      <br><br>
+      &#128293; 2023.09----We're thrilled to announce that we have released the original raw data and corresponding annotations for 21 IDs! Please refer to the <a href="https://opendatalab.com/OpenXDLab/RenderMe-360">download link</a>. Stay tuned as we finalize the remaining data.
+
+
+
+          
+      <a name="timeline"></a>
+            <br><br>
+      <h1 align="center">Data Release Timeline</h1>
+      
+      Our journey of data release started in June when we released the original collected data and corresponding annotations for one sample ID. In July, we have released the raw data for an additional 20 IDs. By September, we had completed the auditing and released all annotations for these 21 IDs.
+      
+      <br><br>
+      Looking forward, we're on track to make a significant leap - the release of full data for all 500 IDs between December 2023 and March 2024. Keep an eye on our updates as we continue to achieve our milestones. 
+      <br><br>
+      We welcome researchers to use RenderMe-360 and contribute to the computer vision and computer graphics community. Together, let's push the boundaries of what's possible!
+      <center><a ><img src="assets/img/timeline.png" width="88%"></a></center>
+      
+
+      <br><br>
+      <h2 align="left">Current Released Contents</h2>
+
+      <table align="center" style="border: 1px #050505 solid" border-spacing= 15px>
+        <thead>
+          <tr>
+            <th style="border: 3px #328bd4 solid">Data Type</th>
+            <th style="border: 3px #328bd4 solid">Numbers</th>
+            <th style="border: 3px #328bd4 solid">Unit Size</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 3px #328bd4 solid">Subjects</td>
+            <td style="border: 3px #328bd4 solid">21</td>
+            <td style="border: 3px #328bd4 solid">-</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">RGB Cameras </td>
+            <td style="border: 3px #328bd4 solid">60</td>
+            <td style="border: 3px #328bd4 solid">-</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">Raw Images of<br>Expressions</td>
+            <td style="border: 3px #328bd4 solid">~1,820,000</td>
+            <td style="border: 3px #328bd4 solid">2448 × 2048</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">Raw Images of <br>Hairstyle</td>
+            <td style="border: 3px #328bd4 solid">~720,000</td>
+            <td style="border: 3px #328bd4 solid">2448 × 2048</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">Raw Images of<br>Speech</td>
+            <td style="border: 3px #328bd4 solid">~6,000,000</td>
+            <td style="border: 3px #328bd4 solid">2448 × 2048</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">Camera Calibrations</td>
+            <td style="border: 3px #328bd4 solid">60</td>
+            <td style="border: 3px #328bd4 solid">-</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">Flame Fitting</td>
+            <td style="border: 3px #328bd4 solid">~30,000</td>
+            <td style="border: 3px #328bd4 solid">-</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">UV Maps</td>
+            <td style="border: 3px #328bd4 solid">~30,000</td>
+            <td style="border: 3px #328bd4 solid">256 x 256</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">2D Landmarks</td>
+            <td style="border: 3px #328bd4 solid">~2,135,000</td>
+            <td style="border: 3px #328bd4 solid">106 x 2</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">3D Landmarks</td>
+            <td style="border: 3px #328bd4 solid">~140,000</td>
+            <td style="border: 3px #328bd4 solid">73 x 3</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">SCAN</td>
+            <td style="border: 3px #328bd4 solid">252</td>
+            <td style="border: 3px #328bd4 solid">-</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">Matting</td>
+            <td style="border: 3px #328bd4 solid">~8,540,000</td>
+            <td style="border: 3px #328bd4 solid">2448 × 2048</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">Facial Attributes</td>
+            <td style="border: 3px #328bd4 solid">2760</td>
+            <td style="border: 3px #328bd4 solid">-</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">Motion Descriptions</td>
+            <td style="border: 3px #328bd4 solid">-</td>
+            <td style="border: 3px #328bd4 solid">4 types</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid">Action Units</td>
+            <td style="border: 3px #328bd4 solid">-</td>
+            <td style="border: 3px #328bd4 solid">12 types</td>
+          </tr>
+          <tr>
+            <td style="border: 3px #328bd4 solid"><b>Total Storage</b></td>
+            <td style="border: 3px #328bd4 solid"><b>5.8 TB</b></td>
+            <td style="border: 3px #328bd4 solid">-</td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+      <a  name="data_usage"></a>
+      <br><br>
+      <h1 align="center" >Dataset Usage</h1>
+      <h2 align="left">Dataset Structure</h2>
 
       <div style="border: 1px solid #ccc; background-color: #eee; padding: 10px;border-radius: 10px;">
 
@@ -193,7 +349,9 @@
         smc_reader_renderme_360.py 【scripts for reading the smc files】 <br>
           </div>
             <br>
-<h3 align="center">How to use - smc data structure</h3>
+
+<h2 align="left">How to use - smc data structure</h2>
+
 <p>The foundemental element of RenderMe-360 dataset is a h5 based SMC file, named with <code>{actorID}_{actionType}{actionID}_{sub_actionID}.smc</code>.
 Each SMC file packs 60 sets of synchronous multi-view image frames, audios (if talking), calibrations, and annotations.
 The <code>actionType</code> includes <code>s</code> for speech, <code>h</code> for hair style and <code>e</code> for expression.
@@ -210,7 +368,7 @@ The <code>actionID</code> is the collection id.
     "Annotation"                           : keypoints annotation and fitting parameters,
 }
 </code></pre>
-<h2>1. Basic Attributes</h2>
+<h3>1. Basic Attributes</h3>
 <p>The <code>attrs</code> group stores basic attribute information of the ID, including attributes of the actor and the camera.</p>
 <pre><code class="language-json">{
     ".attrs"{
@@ -227,7 +385,7 @@ The <code>actionID</code> is the collection id.
     }
 }
 </code></pre>
-<h2>2. Videos</h2>
+<h3>2. Videos</h3>
 <p>The <code>Videos</code> group contains all captured images and audios. Each image frame can be indexed by its <code>cameraID</code>, <code>frameID</code> and its type [<code>color</code>, <code>mask</code>, <code>audio</code>].</p>
 <pre><code class="language-json"> {
     "cameraID"{
@@ -243,7 +401,7 @@ The <code>actionID</code> is the collection id.
     "audio": ...	                    : uint8, exists if the action contains talking
 }
 </code></pre>
-<h2>3. Calibrations</h2>
+<h3>3. Calibrations</h3>
 <p>The <code>Calibrations</code> group gives the calibration coeffient of all cameras including intrinsic, extrinisc and distortions, indexed by <code>cameraID</code>.</p>
 <pre><code class="language-json">{
     "cameraID"{
@@ -253,7 +411,7 @@ The <code>actionID</code> is the collection id.
     }
 }
 </code></pre>
-<h2>4. Annotations</h2>
+<h3>4. Annotations</h3>
 <p>The <code>Annotations</code> group provides the annotation of RenderMe-360 dataset labelled computed by the state-of-art methods. Specifically, <code>Keypoint2d</code> stores the detected 2D keypoints from all camera views. <code>Keypoint3d</code> provides 3D keypoints.</p>
 <pre><code class="language-json">{
     "cameraID"{
@@ -268,7 +426,7 @@ The <code>actionID</code> is the collection id.
         }
 }
 </code></pre>
-<h2>5. FLAME</h2>
+<h4>4.1. FLAME</h4>
 <p>The <code>Annotations</code> group provides the annotation of RenderMe-360 dataset labelled computed by the state-of-art methods. Specifically, <code>FLAME</code> stores the FLAME fitting parameters from each frame. (only in expression part)</p>
 <pre><code class="language-json">{
     "FLAME"{
@@ -287,7 +445,7 @@ The <code>actionID</code> is the collection id.
     }
 }
 </code></pre>
-<h2>6. uv texture</h2>
+<h4>4.2. UV texture</h4>
 <p>The <code>Annotations</code> group provides the annotation of RenderMe-360 dataset labelled computed by the state-of-art methods. Specifically, <code>UV_texture</code> stores the uv texture map from each frame. (only in expression part)</p>
 <pre><code class="language-json">{
     "UV_texture"{
@@ -295,7 +453,7 @@ The <code>actionID</code> is the collection id.
     }
 }
 </code></pre>
-<h2>7. scan mesh</h2>
+<h4>4.3. scan mesh</h4>
 <p>The <code>Annotations</code> group provides the annotation of RenderMe-360 dataset labelled computed by the state-of-art methods. Specifically, <code>Scan</code> stores the scan mesh data. (only in expression part)</p>
 <pre><code class="language-json">{
     "Scan"{
@@ -304,8 +462,8 @@ The <code>actionID</code> is the collection id.
     }
 }
 </code></pre>
-<h3 align="center">Data Interface</h3>
-<p>We provide a standard data interface <a href="assets/code/renderme_360_reader.py">renderme_360_reader.py</a> to fetch each data including all attributes, images, calibrations and annotations. Here is a tiny example.</p>
+<h2 align="left">Data Interface & Visualization</h2>
+<p>We provide a standard data interface <a href="assets/code/renderme_360_reader.py">renderme_360_reader.py</a> to fetch each data including all attributes, images, calibrations and annotations. Here is a tiny example. The code for the visualization of the annotations is coming soon....  </p>
 <pre><code class="language-python">&gt;&gt; from smc_reader import SMCReader
 &gt;&gt; import numpy as np
 
@@ -347,9 +505,26 @@ The <code>actionID</code> is the collection id.
 </code></pre>
 
 
+<h2 align="left">More Question?</h2>
+<a  name="contact"></a>
+If there is something that we didn't answer here, or you are intersted in contributing/using RenderMe-360,  please feel free to drop an e-mail (with your institution's mail address) to Dongwei Pan (<u>pandongwei@pjlab.org.cn</u>) and Long Zhuo (<u>zhuolong@pjlab.org.cn</u>), and CC Kwan-Yee Lin(<u>linjunyi9335@gmail.com</u>) and Wayne Wu(<u>wuwenyan0503@gmail.com</u>).
+
+<br><br>
+<h2 align="left" >Citation</h2>
+    <pre>
+
+      @inproceedings{2023renderme360,
+        title={RenderMe-360: Large Digital Asset Library and Benchmark Towards High-fidelity Head Avatars"}, 
+        author={Pan, Dongwei and Zhuo, Long and Piao, Jingtan and Luo, Huiwen and Cheng, Wei and Wang, Yuxin and Fan, Siming and Liu, Shengqi and Yang, Lei and Dai, Bo and Liu, Ziwei and Loy, Chen Change and Qian, Chen and Wu, Wayne and Lin, Dahua and Lin, Kwan-Yee},
+        booktitle={Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
+        year    = {2023}
+      
+    </pre>
+    <br><br>
+
     </section>
       
-
+    
   </main><!-- End #main -->
 
 
